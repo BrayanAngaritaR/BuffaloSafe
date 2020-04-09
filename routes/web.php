@@ -23,10 +23,6 @@ Route::get('/secure', function () {
     return view('user.secure');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -37,11 +33,31 @@ Route::get('/home', 'HomeController@index')->name('home');
 |--------------------------------------------------------------------------
 */
 
-//Files
+Route::prefix('/dashboard')->group(function(){
+	Route::get('/', 'User\DashboardController@index')
+		->name('user.admin.index')
+		->middleware('auth');
 
-Route::get('dashboard/files', 'User\FilesController@index')->name('user.files.index');
-Route::get('dashboard/files/create', 'User\FilesController@create')->name('user.files.create');
-Route::post('dashboard/files', 'User\FilesController@store')->name('user.files.store');
+	//Set Lang
+
+	Route::get('/{locale}', function ($locale) {
+	    \Session::put('locale', $locale);
+	    return back();
+	})->name('user.set.locale');
+
+	//Files
+	Route::get('/files', 'User\FilesController@index')
+		->name('user.files.index');
+
+	Route::get('/files/create', 'User\FilesController@create')
+	->name('user.files.create');
+
+	Route::post('/files', 'User\FilesController@store')
+	->name('user.files.store');
+
+});
+
+
 
 
 
