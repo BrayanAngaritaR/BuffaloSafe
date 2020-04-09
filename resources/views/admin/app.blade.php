@@ -11,6 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/custom.css')}}">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -43,30 +44,46 @@
                             </li>
 
                             <li class="my-auto">
+
+                                @php
+                                    $locale = \Session::get('locale');
+                                @endphp
+
                                 <button 
                                     type="button"
                                     class="btn btn-link dropdown-toggle text-dark"
                                     data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false" 
                                     >
-                                    EN
+                                    @switch($locale)
+                                        @case('es')
+                                        <span class="flag-icon flag-icon-co"></span> ES
+                                        @break
+
+                                        @case('fr')
+                                        <span class="flag-icon flag-icon-fr"></span> FR
+                                        @break
+
+                                        @default
+                                        <span class="flag-icon flag-icon-us"></span> EN
+                                    @endswitch
                                 </button>
 
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a 
                                         class="dropdown-item" 
                                         href="{{ route('user.set.locale', 'en') }}">
-                                        EN
+                                        <span class="flag-icon flag-icon-us"></span> EN
                                     </a>
                                     <a 
                                         class="dropdown-item" 
                                         href="{{ route('user.set.locale', 'es') }}">
-                                        ES
+                                        <span class="flag-icon flag-icon-es"></span> ES
                                     </a>
                                     <a 
                                         class="dropdown-item" 
                                         href="{{ route('user.set.locale', 'fr') }}">
-                                        FR
+                                        <span class="flag-icon flag-icon-fr"></span> FR
                                     </a>
                                 </div>
                             </li>
