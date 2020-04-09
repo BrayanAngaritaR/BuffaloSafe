@@ -10,49 +10,8 @@
 
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-      <style type="text/css">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styles.css') }}">
 
-         @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-         body{
-            font-family: 'Raleway', sans-serif;
-         }
-
-         *{
-            margin:0; padding: 0;
-         }
-
-         .bg-home, .jumbotron.bg{
-            background: #a8cae2;
-            border-radius: 0;
-         }
-         
-         .img-home{
-            margin: 30px 30px 30px 0px;
-         }
-
-         .title-home{
-            font-size: 2.3rem;
-         }
-
-         .subtitle-home{
-            font-size: 1.5rem;
-         }
-
-         .alert-home{
-            border-top: 1px solid #72b6ec;
-            border-bottom: 1px solid #72b6ec;
-         }
-
-         .card-header{
-            background: #a8cae2;
-         }
-
-         .card:hover{
-            cursor: pointer;
-         }
-
-      </style>
 
       @stack('styles')
 

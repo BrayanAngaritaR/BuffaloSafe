@@ -2,12 +2,7 @@
 
 @push('styles')
 
-<style type="text/css">
-	.bg-home, .jumbotron.bg-secure{
-            background: #e18520;
-            border-radius: 0;
-         }
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/secure.css') }}">
 
 @endpush
 
