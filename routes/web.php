@@ -40,6 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Files
 
 Route::get('dashboard/files', 'User\FilesController@index')->name('user.files.index');
+Route::get('dashboard/files/create', 'User\FilesController@create')->name('user.files.create');
 Route::post('dashboard/files', 'User\FilesController@store')->name('user.files.store');
 
 

@@ -35,5 +35,14 @@
 			</div>
 		</div>
 	</div><!--/.row-->
+
+	<div class="mt-5 row">
+		<div class="col-md-6 mt-5">
+			<canvas id="line-chart" width="100%" height="100%"></canvas>
+		</div>
+		<div class="col-md-6 mt-5">
+			<canvas id="pie-chart" width="100%"></canvas>
+		</div>
+	</div>
 @stop
 				
